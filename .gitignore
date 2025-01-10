@@ -1,0 +1,59 @@
+# Node modules directory
+/node_modules/
+
+# Output directories
+/out/
+*.js
+
+# VSIX Files
+*.vsix
+
+# TypeScript build output
+*.tsbuildinfo
+
+# VSCode settings folder
+.vscode/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# NPM package lock file (if you want to exclude it)
+package-lock.json
+
+# Dependency directories
+bower_components/
+jspm_packages/
+
+# Temporary files
+*.tmp
+*.swp
+
+# Environment files
+.env
+
+# Debug and test artifacts
+*.code-workspace
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+
+# ESBuild and related files
+esbuild.js
+
+# Miscellaneous
+*.sublime-workspace
+*.sublime-project
+
+# Visual Studio Code extensions directory (for global extensions)
+.vscode/extensions/
+
+# Synchronized files (if using extensions like Live Share)
+.vscode/liveshare/
+
+# Coverage directory (if using code coverage tools)
+coverage/

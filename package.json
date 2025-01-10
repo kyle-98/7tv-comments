@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "7tv-comments.helloWorld",
-        "title": "Hello World"
+        "command": "7tv-comments.start",
+        "title": "Start 7TV Comments"
       }
     ]
   },

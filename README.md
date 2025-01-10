@@ -68,4 +68,46 @@ You can author your README using Visual Studio Code. Here are some useful editor
 * [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
-**Enjoy!**
+## All keywords currently:
+- aintnoway
+- awakebutatwhatcost
+- awoke
+- biboo
+- bruh
+- chatting
+- cooking
+- copium
+- corpa
+- cry
+- enough
+- flashbang
+- fries
+- gamba
+- headtothewall
+- huh
+- jover
+- kapl
+- kekw
+- livereaction
+- lolhaha
+- looking
+- losingit
+- magnet
+- math
+- monkalaugh
+- monkas
+- notworking
+- omegadance
+- pekopls
+- pog
+- reallyangry
+- reallymad
+- saved
+- skypecall
+- sofunny
+- thumbsup
+- tomfoolery
+- verycat
+- what
+- wideamong
+- xqccheer

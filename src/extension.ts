@@ -1,26 +1,72 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as fs from 'fs';
+import * as path from 'path';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+let imageFilenames: { [key: string]: string[] } = {};
+let imageDirectory: string = '';
+
 export function activate(context: vscode.ExtensionContext) {
+    imageDirectory = path.join(context.extensionPath, 'images');
+    loadImageFilenames(imageDirectory);
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "7tv-comments" is now active!');
+    const hoverProvider = vscode.languages.registerHoverProvider({ scheme: 'file', language: '*' }, {
+        provideHover(document, position) {
+            const range = document.getWordRangeAtPosition(position);
+            if (!range) return;
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('7tv-comments.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from 7TV-Comments!');
-	});
+            const word = document.getText(range);
 
-	context.subscriptions.push(disposable);
+            const lineText = document.lineAt(position.line).text;
+            if (isInComment(lineText, position.character)) {
+                if (imageFilenames.hasOwnProperty(word)) {
+                    const extensions = imageFilenames[word];
+
+                    if (extensions.length > 0) {
+                        const imageUri = vscode.Uri.joinPath(context.extensionUri, 'images', `${word}.${extensions[0]}`);
+                        
+                        const markdown = new vscode.MarkdownString(`![${word}](${imageUri})`);
+                        return new vscode.Hover(markdown);
+                    }
+                }
+            }
+        }
+    });
+
+    context.subscriptions.push(hoverProvider);
+
+    const startCommand = vscode.commands.registerCommand('7tv-comments.start', () => {
+        vscode.window.showInformationMessage('7TV Comments started :pepelaugh:');
+    });
+
+    context.subscriptions.push(startCommand);
 }
 
-// This method is called when your extension is deactivated
+function isInComment(line: string, character: number): boolean {
+    const commentPatterns = [
+        /\/\/.*/,   // JavaScript, C#, Java, Javascript, Typescript, something else idk
+        /#.*$/,     // Python
+        /--.*/      // SQL, anyone else hate this language? mainly oracle :thumbsupemoji:
+    ];
+
+    return commentPatterns.some(pattern => pattern.test(line));
+}
+
+function loadImageFilenames(directory: string) {
+    imageFilenames = {};
+    if (!fs.existsSync(directory)) return;
+
+    const files = fs.readdirSync(directory);
+    files.forEach(file => {
+        const ext = path.extname(file).toLowerCase();
+        if (['.png', '.jpg', '.jpeg', '.gif', '.svg'].includes(ext)) {
+            const filenameWithoutExt = path.basename(file, ext);
+
+            if (!imageFilenames[filenameWithoutExt]) {
+                imageFilenames[filenameWithoutExt] = [];
+            }
+            imageFilenames[filenameWithoutExt].push(ext.slice(1));
+        }
+    });
+}
+
 export function deactivate() {}

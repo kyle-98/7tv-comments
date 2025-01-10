@@ -8,6 +8,7 @@
     "vscode": "^1.84.2"
   },
   "icon": "images/biboo.png",
+  "repository": "https://github.com/kyle-98/7tv-comments",
   "categories": [
     "Other"
   ],

@@ -1,6 +1,6 @@
 # 7tv-comments README
 
-This is the README for your extension "7tv-comments". After writing up a brief description, we recommend including the following sections.
+wow new extension aint no way
 
 ## Features
 

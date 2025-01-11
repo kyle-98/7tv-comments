@@ -2,6 +2,9 @@
 
 wow new extension aint no way
 
+# Marketplace Link
+[wow click to get!!](https://marketplace.visualstudio.com/items?itemName=erm.7tv-comments)
+
 ## Features
 
 Use `Start 7TV Comments` in the command palette to start the extension
@@ -9,16 +12,6 @@ Use `Start 7TV Comments` in the command palette to start the extension
 ## Requirements
 
 If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-
-## Release Notes
-
-Literally just releasing this extension man
-
-### 1.0.0
-
-Initial release of 7TV-Comments
-
 
 ## All keywords currently:
 - aintnoway
@@ -63,3 +56,14 @@ Initial release of 7TV-Comments
 - what
 - wideamong
 - xqccheer
+
+
+## Release Notes
+
+### 1.0.0
+
+Initial release of 7TV-Comments
+
+### 1.1.0
+
+Auto start on vscode loading + start and stop command for extension

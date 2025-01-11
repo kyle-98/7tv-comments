@@ -19,6 +19,10 @@
       {
         "command": "7tv-comments.start",
         "title": "Start 7TV Comments"
+      },
+      {
+        "command": "7tv-comments.stop",
+        "title": "Stop 7TV Comments"
       }
     ]
   },

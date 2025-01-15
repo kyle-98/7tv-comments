@@ -62,6 +62,22 @@ None 👍
 - what
 - wideamong
 - xqccheer
+- shioris
+- suipunch
+- suisip
+- gurapain
+- faunaslap
+- taxes
+- waiting
+- lol
+- noonecares
+- cappie
+- fotd
+- blunder
+- dg
+- yapper
+- hi
+- huhh
 
 
 ## Release Notes

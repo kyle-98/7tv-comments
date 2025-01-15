@@ -32,7 +32,8 @@ function isInComment(line: string): boolean {
         /\/\/.*/,   // JavaScript, C#, Java, Javascript, Typescript, something else idk
         /#.*$/,     // Python
         /--.*/,      // SQL, anyone else hate this language? mainly oracle thumbsup
-        /\/\*.*\*\//
+        /\/\*.*\*\//, // CSS
+        /<!--[\s\S]*?-->/ // HTML
     ];
     return commentPatterns.some(pattern => pattern.test(line));
 }

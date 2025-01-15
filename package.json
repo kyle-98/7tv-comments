@@ -2,7 +2,7 @@
   "name": "7tv-comments",
   "displayName": "7TV-Comments",
   "description": "Show images/7TV emotes when hovering over comments in code.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "publisher": "erm",
   "engines": {
     "vscode": "^1.84.2"

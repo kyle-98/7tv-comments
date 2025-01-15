@@ -11,15 +11,12 @@ export function activate(context: vscode.ExtensionContext) {
 
     const startCommand = vscode.commands.registerCommand('7tv-comments.start', () => {
         startExtension(context);
-        vscode.window.showInformationMessage('7TV Comments started :pepelaugh:');
     });
-    vscode.window.showInformationMessage('testestserstsdsdtsdt');
 
     context.subscriptions.push(startCommand);
 
     const stopCommand = vscode.commands.registerCommand('7tv-comments.stop', () => {
         stopExtension();
-        vscode.window.showInformationMessage('7TV Comments stopped :sadge:')
     });
     context.subscriptions.push(stopCommand);
 
@@ -68,7 +65,7 @@ function startExtension(context: vscode.ExtensionContext) {
                 const range = document.getWordRangeAtPosition(position);
                 if (!range) return;
     
-                const word = document.getText(range);
+                const word = document.getText(range).toLowerCase();
     
                 const lineText = document.lineAt(position.line).text;
                 if (isInComment(lineText)) {
@@ -87,16 +84,24 @@ function startExtension(context: vscode.ExtensionContext) {
         });
         activeResources.push(hoverProvider);
         context.subscriptions.push(hoverProvider);
+        vscode.window.showInformationMessage('7TV Comments started :pepelaugh:');
+        isEnabled = true;
     }
-    isEnabled = true;
+    else {
+        vscode.window.showErrorMessage('Failed to start 7TV Comments, extension already running');
+    }
 }
 
 function stopExtension() {
-    while (activeResources.length > 0) {
-        const resource = activeResources.pop();
-        resource?.dispose();
+    if(isEnabled){
+        while (activeResources.length > 0) {
+            const resource = activeResources.pop();
+            resource?.dispose();
+        }
+        isEnabled = false;
+        vscode.window.showInformationMessage('7TV Comments disabled :sadge:')
     }
-    isEnabled = true;
+    else {
+        vscode.window.showErrorMessage('Failed to stop 7TV Comments, extension is not running')
+    }
 }
-
-

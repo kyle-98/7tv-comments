@@ -7,11 +7,17 @@ wow new extension aint no way
 
 ## Features
 
-Use `Start 7TV Comments` in the command palette to start the extension
+- Extension automatically starts after installation
+- Extension contains two commands:
+    - Start 7TV Comments
+        - This lets you start the extension if it is not already running
+    - Stop 7TV Comments
+        - This lets you stop the extension if it is currently running
+- You can add more images into the images directory inside the vsix file before installing. Use 7-zip to open the vsix file and edit it. (I hate winrar)
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+None 👍
 
 ## All keywords currently:
 - aintnoway
@@ -67,3 +73,7 @@ Initial release of 7TV-Comments
 ### 1.1.0
 
 Auto start on vscode loading + start and stop command for extension
+
+### 1.2.0
+
+Added support for CSS and HTML comments. Stop user from starting the extension multiple times when it's already running. Ignore capitalization of comments when displaying images.
